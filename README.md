@@ -6,27 +6,27 @@ The implementations presented here are for fun and learning purposes.
 
 ### Data structures
 
-[ ] Arrays
-[ ] Lists
-[ ] Stacks
-[ ] Queues
-[ ] Hash Tables
-[ ] Heaps
-[ ] Trees
-[ ] Tries
-[ ] Graphs
+- [ ] Arrays
+- [ ] Lists
+- [ ] Stacks
+- [ ] Queues
+- [ ] Hash Tables
+- [ ] Heaps
+- [ ] Trees
+- [ ] Tries
+- [ ] Graphs
 
 ### Algorithms
-[ ] Time & Space Complexity
-[ ] Binary search
-[ ] Sorting algorithms 
+- [ ] Time & Space Complexity
+- [ ] Binary search
+- [ ] Sorting algorithms 
   - [ ] Bubble sort
   - [ ] Insertion sort
   - [ ] Selection sort
   - [ ] Merge sort
   - [ ] Quicksort
-[ ] Karp-Rabin algorithm
-[ ] Graph algorithms
+- [ ] Karp-Rabin algorithm
+- [ ] Graph algorithms
  - [ ] Breadth-first search
  - [ ] Depth-first search
  - [ ] Dijkstra's algorithm
