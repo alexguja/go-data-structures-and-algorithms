@@ -23,12 +23,12 @@ func NewHashTable(size int) *HashTable {
 		table:      make([]*TableEntry, size),
 		size:       size,
 		count:      0,
-		lowerBound: 0.25,
-		upperBound: 1,
+		lowerBound: 0.25, // resize when count <= 0.25 * size
+		upperBound: 1,    // resize when count >= size
 	}
 }
 
-func (ht *HashTable) SimpleHash(key string) int {
+func (ht *HashTable) simpleHash(key string) int {
 	sum := 0
 	for _, char := range key {
 		sum += int(char)
@@ -36,20 +36,8 @@ func (ht *HashTable) SimpleHash(key string) int {
 	return sum % ht.size
 }
 
-func (ht *HashTable) GetItem(key string) interface{} {
-	index := ht.SimpleHash(key)
-	entry := ht.table[index]
-	for entry != nil {
-		if entry.key == key {
-			return entry.value
-		}
-		entry = entry.next
-	}
-	return nil
-}
-
-func (ht *HashTable) PutItem(key string, value interface{}) {
-	index := ht.SimpleHash(key)
+func (ht *HashTable) Insert(key string, value interface{}) {
+	index := ht.simpleHash(key)
 	entry := ht.table[index]
 	for entry != nil {
 		if entry.key == key {
@@ -66,8 +54,20 @@ func (ht *HashTable) PutItem(key string, value interface{}) {
 	}
 }
 
+func (ht *HashTable) Get(key string) interface{} {
+	index := ht.simpleHash(key)
+	entry := ht.table[index]
+	for entry != nil {
+		if entry.key == key {
+			return entry.value
+		}
+		entry = entry.next
+	}
+	return nil
+}
+
 func (ht *HashTable) Remove(key string) interface{} {
-	index := ht.SimpleHash(key)
+	index := ht.simpleHash(key)
 	entry := ht.table[index]
 	var previous *TableEntry
 	for entry != nil {
@@ -94,7 +94,7 @@ func (ht *HashTable) Resize(newSize int) {
 	newTable := NewHashTable(newSize)
 	for _, entry := range ht.table {
 		for entry != nil {
-			newTable.PutItem(entry.key, entry.value)
+			newTable.Insert(entry.key, entry.value)
 			entry = entry.next
 		}
 	}

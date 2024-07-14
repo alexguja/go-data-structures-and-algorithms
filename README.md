@@ -9,8 +9,9 @@ The implementations presented here are for fun and learning purposes.
 - [x] Lists
 - [x] Stacks
 - [x] Queues
-- [ ] Hash tables
-- [ ] Trees
+- [x] Hash tables
+- [x] Binary Search Trees
+- [ ] AVL Trees
 - [x] Heaps
 - [x] Graphs
 - [ ] Tries

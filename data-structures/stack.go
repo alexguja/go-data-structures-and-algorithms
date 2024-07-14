@@ -22,7 +22,6 @@ func (s *Stack) Pop() (el any, err error) {
 }
 
 func (s *Stack) Peek() (el any, err error) {
-
 	if s.IsEmpty() {
 		err := errors.New("the stack is empty")
 		return nil, err
