@@ -1,5 +1,11 @@
 package main
 
+import (
+	"errors"
+
+	"golang.org/x/exp/constraints"
+)
+
 type ListNode[T constraints.Ordered] struct {
 	value T
 	next  *ListNode[T]
@@ -10,7 +16,7 @@ type LinkedList[T constraints.Ordered] struct {
 	size int
 }
 
-func (l *LinkedList[T]) Add(*ListNode[T]) {
+func (l *LinkedList[T]) Add(ln *ListNode[T]) {
 	if l.head == nil {
 		l.head = ln
 	} else {
@@ -62,6 +68,7 @@ func (l *LinkedList[T]) Find(value T) (ln *ListNode[T], err error) {
 	}
 	if ln == nil {
 		err := errors.New("list node node found")
+		return nil, err
 	}
 	return
 }

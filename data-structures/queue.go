@@ -1,5 +1,7 @@
 package main
 
+import "errors"
+
 type Queue struct {
 	elements []any
 }
@@ -11,10 +13,10 @@ func (q *Queue) Enqueue(el any) {
 func (q *Queue) Dequeue() (el any, err error) {
 	if q.IsEmpty() {
 		err := errors.New("empty queue")
-		return
+		return nil, err
 	}
 
-	el := q.elements[0]
+	el = q.elements[0]
 	q.elements = q.elements[1:]
 	return
 }

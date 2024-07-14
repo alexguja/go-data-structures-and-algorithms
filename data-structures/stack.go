@@ -1,5 +1,7 @@
 package main
 
+import "errors"
+
 type Stack struct {
 	elements []any
 }
@@ -9,33 +11,31 @@ func (s *Stack) Push(el any) {
 }
 
 func (s *Stack) Pop() (el any, err error) {
-	const lasIdx = len(s.elements) - 1
-
 	if s.IsEmpty() {
-		err := errors.New("the stack is empty!")
-		return
+		err := errors.New("the stack is empty")
+		return nil, err
 	}
 
-	el := s.elements[lastIdx]
-	s.elements = s.elements[:lastIdx]
+	el = s.elements[len(s.elements)-1]
+	s.elements = s.elements[:len(s.elements)-1]
+	return
 }
 
 func (s *Stack) Peek() (el any, err error) {
-	const lasIdx = len(s.elements) - 1
 
 	if s.IsEmpty() {
-		err := errors.New("empty queue")
-		return
+		err := errors.New("the stack is empty")
+		return nil, err
 	}
 
-	el := s.elements[lastIdx]
-    return 
+	el = s.elements[len(s.elements)-1]
+	return
 }
 
-func (s *Stack) IsEmpty() bool{
-  return s.Size() == 0
+func (s *Stack) IsEmpty() bool {
+	return s.Size() == 0
 }
 
-func (s *Size) Size() int {
-  return len(s.elements)
+func (s *Stack) Size() int {
+	return len(s.elements)
 }

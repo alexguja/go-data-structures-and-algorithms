@@ -1,5 +1,7 @@
 package main
 
+import "golang.org/x/exp/constraints"
+
 func parent(i int) int {
 	return (i - 1) / 2
 }
@@ -13,7 +15,7 @@ func rightChild(i int) int {
 }
 
 type Heap[T constraints.Ordered] struct {
-	node []T
+	nodes []T
 }
 
 func (h *Heap[T]) Push(el T) {
@@ -54,10 +56,10 @@ func (h *Heap[T]) swap(i, j int) {
 	h.nodes[i], h.nodes[j] = h.nodes[j], h.nodes[i]
 }
 
-func (h *Heap) Size() int {
+func (h *Heap[T]) Size() int {
 	return len(h.nodes)
 }
 
-func (h *Heap) IsEmpty() bool {
+func (h *Heap[T]) IsEmpty() bool {
 	return h.Size() == 0
 }
