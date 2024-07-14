@@ -39,9 +39,7 @@ func (l *LinkedList[T]) Insert(ln *ListNode[T], marker T) error {
 }
 
 func (l *LinkedList[T]) Delete(ln *ListNode[T]) error {
-	prev := l.head
-	current := l.head
-	for current != nil {
+	for prev, current := l.head, l.head; current != nil; prev, current = current, current.next {
 		if current.value == ln.value {
 			if current == l.head {
 				l.head = current.next
@@ -51,8 +49,6 @@ func (l *LinkedList[T]) Delete(ln *ListNode[T]) error {
 			l.size--
 			return nil
 		}
-		prev = current
-		current = current.next
 	}
 	return errors.New("node not found")
 }
