@@ -7,11 +7,11 @@ The implementations presented here are for fun and learning purposes.
 ### Data structures
 
 - [ ] Arrays
-- [ ] Lists
-- [ ] Stacks
-- [ ] Queues
+- [x] Lists
+- [x] Stacks
+- [x] Queues
 - [ ] Hash Tables
-- [ ] Heaps
+- [x] Heaps
 - [ ] Trees
 - [ ] Tries
 - [ ] Graphs
