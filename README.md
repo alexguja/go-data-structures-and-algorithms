@@ -5,19 +5,17 @@ The implementations presented here are for fun and learning purposes.
 
 
 ### Data structures
-
-- [ ] Arrays
+- [ ] Dynamic arrays
 - [x] Lists
 - [x] Stacks
 - [x] Queues
-- [ ] Hash Tables
-- [x] Heaps
+- [ ] Hash tables
 - [ ] Trees
+- [x] Heaps
+- [x] Graphs
 - [ ] Tries
-- [ ] Graphs
 
 ### Algorithms
-- [ ] Time & Space Complexity
 - [ ] Binary search
 - [ ] Sorting algorithms 
   - [ ] Bubble sort
