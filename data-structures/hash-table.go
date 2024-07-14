@@ -39,13 +39,18 @@ func (ht *HashTable) simpleHash(key string) int {
 func (ht *HashTable) Insert(key string, value interface{}) {
 	index := ht.simpleHash(key)
 	entry := ht.table[index]
+
+	// Check if the key already exists
 	for entry != nil {
+		// Overwrite the value if the key exists and terminate
 		if entry.key == key {
 			entry.value = value
 			return
 		}
 		entry = entry.next
 	}
+
+	// Insert brand new entry
 	ht.table[index] = &TableEntry{key: key, value: value, next: ht.table[index]}
 	ht.count++
 
