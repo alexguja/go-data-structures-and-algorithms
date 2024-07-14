@@ -27,17 +27,15 @@ func (l *LinkedList[T]) Add(ln *ListNode[T]) {
 }
 
 func (l *LinkedList[T]) Insert(ln *ListNode[T], marker T) error {
-	current := l.head
-	for current.next != nil {
+	for current := l.head; current.next != nil; current = current.next {
 		if current.value == marker {
 			ln.next = current.next
 			current.next = ln
 			l.size++
 			return nil
 		}
-		current = current.next
 	}
-	return errors.New("marker node not found!")
+	return errors.New("marker node not found")
 }
 
 func (l *LinkedList[T]) Delete(ln *ListNode[T]) error {
